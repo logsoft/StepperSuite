@@ -3854,3 +3854,241 @@
 2012-06-30 01:55:01,566 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S Z 1\x85w\r' 
 2012-06-30 01:55:01,567 log.com: DEBUG comthread , line 148 , $ serial rcv: Q Y 1 
 2012-06-30 01:55:01,574 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:14:46,888 log.com: INFO comthread , line 107 , $ serial opened:/dev/ttyACM0, 57600Baud
+2012-06-30 02:14:49,803 log.com: DEBUG comthread , line 148 , $ serial rcv: racecam V31 
+2012-06-30 02:14:49,805 log.com: DEBUG comthread , line 148 , $ serial rcv: Q X 1 
+2012-06-30 02:14:49,806 log.com: DEBUG comthread , line 148 , $ serial rcv: Q Y 1 
+2012-06-30 02:14:49,807 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 0 
+2012-06-30 02:14:49,809 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 0 
+2012-06-30 02:14:49,810 log.com: DEBUG comthread , line 148 , $ serial rcv: XG 11 3000.00 
+2012-06-30 02:14:49,811 log.com: DEBUG comthread , line 148 , $ serial rcv: XG 111 6000.00 
+2012-06-30 02:14:53,079 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x05S X 0\x85\x17\r' 
+2012-06-30 02:14:53,080 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x05S Y 0EF\r' 
+2012-06-30 02:14:53,080 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x05S Z 0E\xb6\r' 
+2012-06-30 02:14:53,081 drives: INFO drives , line 52 , $ Driver state set to: 0
+2012-06-30 02:14:53,084 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S X 0\x85\x17\r' 
+2012-06-30 02:14:53,095 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:14:53,096 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S Y 0EF\r' 
+2012-06-30 02:14:53,097 log.com: DEBUG comthread , line 148 , $ serial rcv: Q X 0 
+2012-06-30 02:14:53,105 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:14:53,106 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S Z 0E\xb6\r' 
+2012-06-30 02:14:53,107 log.com: DEBUG comthread , line 148 , $ serial rcv: Q Y 0 
+2012-06-30 02:14:53,115 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:05,522 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:05,530 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:05,541 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:05,704 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 84 
+2012-06-30 02:15:05,706 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 928.39 
+2012-06-30 02:15:05,900 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 324 
+2012-06-30 02:15:05,902 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 1061.09 
+2012-06-30 02:15:06,105 log.com: DEBUG comthread , line 148 , $ serial rcv: L X 437 
+2012-06-30 02:15:06,194 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:06,197 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:06,203 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:06,305 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 473 
+2012-06-30 02:15:06,308 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 616.32 
+2012-06-30 02:15:06,504 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 686 
+2012-06-30 02:15:06,506 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 1369.18 
+2012-06-30 02:15:06,706 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 859 
+2012-06-30 02:15:06,707 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 388.47 
+2012-06-30 02:15:06,773 log.com: DEBUG comthread , line 148 , $ serial rcv: L X 874 
+2012-06-30 02:15:06,786 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:06,795 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:06,803 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:06,906 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 914 
+2012-06-30 02:15:06,907 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 648.16 
+2012-06-30 02:15:07,022 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,030 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,041 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:07,114 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 1135 
+2012-06-30 02:15:07,116 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 1629.33 
+2012-06-30 02:15:07,232 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,239 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,250 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:07,312 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 1415 
+2012-06-30 02:15:07,314 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 1359.46 
+2012-06-30 02:15:07,436 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,438 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,449 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:07,512 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 1585 
+2012-06-30 02:15:07,514 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 380.09 
+2012-06-30 02:15:07,574 log.com: DEBUG comthread , line 148 , $ serial rcv: L X 1600 
+2012-06-30 02:15:07,616 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,626 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,634 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:07,842 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,849 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 437 2011\xf6\x10\r' 
+2012-06-30 02:15:07,854 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:09,915 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:09,919 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:09,930 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:09,990 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:09,992 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:10,003 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:10,124 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 226 
+2012-06-30 02:15:10,136 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 2011.00 
+2012-06-30 02:15:10,294 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:10,299 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:10,310 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:10,333 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 477 
+2012-06-30 02:15:10,335 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 735.91 
+2012-06-30 02:15:10,522 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:10,530 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 776 
+2012-06-30 02:15:10,531 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:10,532 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 1583.20 
+2012-06-30 02:15:10,543 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:10,731 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:10,733 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 1127 
+2012-06-30 02:15:10,734 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:10,736 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 1416.90 
+2012-06-30 02:15:10,743 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:10,934 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 1469 
+2012-06-30 02:15:10,936 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 1492.35 
+2012-06-30 02:15:10,937 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:10,938 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:10,949 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:11,122 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:11,123 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:11,133 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 1813 
+2012-06-30 02:15:11,135 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 1499.02 
+2012-06-30 02:15:11,136 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:11,325 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:11,329 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:11,331 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2162 
+2012-06-30 02:15:11,343 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 1322.24 
+2012-06-30 02:15:11,345 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:11,513 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:11,518 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:11,523 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:11,533 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2504 
+2012-06-30 02:15:11,545 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 1558.11 
+2012-06-30 02:15:11,661 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:11,668 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y 437 20113A\r' 
+2012-06-30 02:15:11,679 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:11,743 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2879 
+2012-06-30 02:15:11,745 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 2011.00 
+2012-06-30 02:15:11,946 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 3177 
+2012-06-30 02:15:11,947 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 674.54 
+2012-06-30 02:15:11,996 log.com: DEBUG comthread , line 148 , $ serial rcv: L Y 3200 
+2012-06-30 02:15:13,403 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\rM Y -437 2011\xcfz\r' 
+2012-06-30 02:15:13,410 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\rM Y -437 2011\xcfz\r' 
+2012-06-30 02:15:13,415 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:13,554 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 3097 
+2012-06-30 02:15:13,556 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y -1450.80 
+2012-06-30 02:15:13,752 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2797 
+2012-06-30 02:15:13,753 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y -820.40 
+2012-06-30 02:15:13,824 log.com: DEBUG comthread , line 148 , $ serial rcv: L Y 2763 
+2012-06-30 02:15:15,720 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0bM X 200 500\xe8.\r' 
+2012-06-30 02:15:15,719 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0bM X 200 500\xe8.\r' 
+2012-06-30 02:15:15,722 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM Y -200 500\xc8\x85\r' 
+2012-06-30 02:15:15,731 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:15,732 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM Y -200 500\xc8\x85\r' 
+2012-06-30 02:15:15,743 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:15,763 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2757 
+2012-06-30 02:15:15,764 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y -389.25 
+2012-06-30 02:15:15,963 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2658 
+2012-06-30 02:15:15,964 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y -500.00 
+2012-06-30 02:15:16,166 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2565 
+2012-06-30 02:15:16,167 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y -197.05 
+2012-06-30 02:15:16,174 log.com: DEBUG comthread , line 148 , $ serial rcv: L Y 2563 
+2012-06-30 02:15:16,725 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x03R AAx\r' 
+2012-06-30 02:15:16,726 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\rLS Z O 8 5000~f\r' 
+2012-06-30 02:15:16,734 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x03R AAx\r' 
+2012-06-30 02:15:16,743 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:16,744 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\rLS Z O 8 5000~f\r' 
+2012-06-30 02:15:16,745 log.com: DEBUG comthread , line 148 , $ serial rcv: ref akt 
+2012-06-30 02:15:16,746 log.com: DEBUG comthread , line 148 , $ serial rcv: G X -500.00 
+2012-06-30 02:15:16,748 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:16,749 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:15:16,770 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 1588 
+2012-06-30 02:15:16,772 log.com: DEBUG comthread , line 148 , $ serial rcv: G X -500.00 
+2012-06-30 02:15:16,774 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2575 
+2012-06-30 02:15:16,776 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:16,970 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 1489 
+2012-06-30 02:15:16,973 log.com: DEBUG comthread , line 148 , $ serial rcv: G X -500.00 
+2012-06-30 02:15:16,976 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2674 
+2012-06-30 02:15:16,979 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:17,173 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 1389 
+2012-06-30 02:15:17,176 log.com: DEBUG comthread , line 148 , $ serial rcv: G X -500.00 
+2012-06-30 02:15:17,177 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2774 
+2012-06-30 02:15:17,179 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:17,373 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 1289 
+2012-06-30 02:15:17,375 log.com: DEBUG comthread , line 148 , $ serial rcv: G X -500.00 
+2012-06-30 02:15:17,377 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2874 
+2012-06-30 02:15:17,378 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:17,574 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 1190 
+2012-06-30 02:15:17,576 log.com: DEBUG comthread , line 148 , $ serial rcv: G X -500.00 
+2012-06-30 02:15:17,578 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 2973 
+2012-06-30 02:15:17,580 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:17,776 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 1091 
+2012-06-30 02:15:17,777 log.com: DEBUG comthread , line 148 , $ serial rcv: G X -500.00 
+2012-06-30 02:15:17,779 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 3072 
+2012-06-30 02:15:17,781 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:17,975 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 991 
+2012-06-30 02:15:17,983 log.com: DEBUG comthread , line 148 , $ serial rcv: G X -500.00 
+2012-06-30 02:15:17,985 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 3172 
+2012-06-30 02:15:17,987 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:18,182 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 892 
+2012-06-30 02:15:18,183 log.com: DEBUG comthread , line 148 , $ serial rcv: G X -500.00 
+2012-06-30 02:15:18,185 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 3271 
+2012-06-30 02:15:18,187 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:18,306 log.com: DEBUG comthread , line 148 , $ serial rcv: L X 0 
+2012-06-30 02:15:18,378 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 3370 
+2012-06-30 02:15:18,380 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:18,584 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 3469 
+2012-06-30 02:15:18,585 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:18,780 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 3568 
+2012-06-30 02:15:18,781 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:18,984 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 3667 
+2012-06-30 02:15:18,986 log.com: DEBUG comthread , line 148 , $ serial rcv: G Y 500.00 
+2012-06-30 02:15:19,053 log.com: DEBUG comthread , line 148 , $ serial rcv: L Y 0 
+2012-06-30 02:15:33,179 log.com: INFO comthread , line 117 , $ serial closed:/dev/ttyACM0
+2012-06-30 02:16:45,910 log.com: INFO comthread , line 107 , $ serial opened:/dev/ttyACM0, 57600Baud
+2012-06-30 02:16:48,825 log.com: DEBUG comthread , line 148 , $ serial rcv: racecam V31 
+2012-06-30 02:16:48,826 log.com: DEBUG comthread , line 148 , $ serial rcv: Q X 1 
+2012-06-30 02:16:48,828 log.com: DEBUG comthread , line 148 , $ serial rcv: Q Y 1 
+2012-06-30 02:16:48,829 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 0 
+2012-06-30 02:16:48,831 log.com: DEBUG comthread , line 148 , $ serial rcv: W Y 0 
+2012-06-30 02:16:48,833 log.com: DEBUG comthread , line 148 , $ serial rcv: XG 11 3000.00 
+2012-06-30 02:16:48,835 log.com: DEBUG comthread , line 148 , $ serial rcv: XG 111 6000.00 
+2012-06-30 02:16:49,180 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x05S X 0\x85\x17\r' 
+2012-06-30 02:16:49,181 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x05S Y 0EF\r' 
+2012-06-30 02:16:49,181 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S X 0\x85\x17\r' 
+2012-06-30 02:16:49,183 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x05S Z 0E\xb6\r' 
+2012-06-30 02:16:49,184 drives: INFO drives , line 52 , $ Driver state set to: 0
+2012-06-30 02:16:49,193 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:16:49,194 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S Y 0EF\r' 
+2012-06-30 02:16:49,196 log.com: DEBUG comthread , line 148 , $ serial rcv: Q X 0 
+2012-06-30 02:16:49,203 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:16:49,204 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S Z 0E\xb6\r' 
+2012-06-30 02:16:49,206 log.com: DEBUG comthread , line 148 , $ serial rcv: Q Y 0 
+2012-06-30 02:16:49,213 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:16:51,218 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 100 2000."\r' 
+2012-06-30 02:16:51,220 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 100 2000."\r' 
+2012-06-30 02:16:51,231 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:16:51,242 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 2 
+2012-06-30 02:16:51,243 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 183.33 
+2012-06-30 02:16:51,438 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 94 
+2012-06-30 02:16:51,443 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 256.22 
+2012-06-30 02:16:51,473 log.com: DEBUG comthread , line 148 , $ serial rcv: L X 100 
+2012-06-30 02:16:51,610 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x0cM X 100 2000."\r' 
+2012-06-30 02:16:51,617 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x0cM X 100 2000."\r' 
+2012-06-30 02:16:51,633 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:16:51,643 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 103 
+2012-06-30 02:16:51,645 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 210.61 
+2012-06-30 02:16:51,843 log.com: DEBUG comthread , line 148 , $ serial rcv: W X 195 
+2012-06-30 02:16:51,845 log.com: DEBUG comthread , line 148 , $ serial rcv: G X 236.70 
+2012-06-30 02:16:51,874 log.com: DEBUG comthread , line 148 , $ serial rcv: L X 200 
+2012-06-30 02:16:53,389 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x05S X 1E\xd6\r' 
+2012-06-30 02:16:53,390 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x05S Y 1\x85\x87\r' 
+2012-06-30 02:16:53,391 log.com: DEBUG comthread , line 98 , $ ser snd tolist: '\x05S Z 1\x85w\r' 
+2012-06-30 02:16:53,392 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S X 1E\xd6\r' 
+2012-06-30 02:16:53,393 drives: INFO drives , line 52 , $ Driver state set to: 1
+2012-06-30 02:16:53,404 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:16:53,405 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S Y 1\x85\x87\r' 
+2012-06-30 02:16:53,406 log.com: DEBUG comthread , line 148 , $ serial rcv: Q X 1 
+2012-06-30 02:16:53,413 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:16:53,414 log.com: DEBUG comthread , line 160 , $ ser snd toPort: '\x05S Z 1\x85w\r' 
+2012-06-30 02:16:53,415 log.com: DEBUG comthread , line 148 , $ serial rcv: Q Y 1 
+2012-06-30 02:16:53,425 log.com: DEBUG comthread , line 137 , $ ser rcv ACK
+2012-06-30 02:16:55,102 log.com: INFO comthread , line 117 , $ serial closed:/dev/ttyACM0

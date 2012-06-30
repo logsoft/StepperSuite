@@ -56,7 +56,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #serial comunication to arduino
         self.myport = ComFrame(self.frame_com_placeholder)
         self.myport.com.rxmsg.connect(self.decodeData)
-        self.myport.portstatus.connect(self._com_state)
+#        self.myport.portstatus.connect(self._com_state)
 
 
         #controller button class
@@ -108,9 +108,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         except:
             pass
 
-    def _com_state(self,state):
-        if state == "open" : self._UI_access(1)
-        if state == "closed" : self._UI_access(0)
+#    def _com_state(self,state):
+#        if state == "open" : self._UI_access(1)
+#        if state == "closed" : self._UI_access(0)
 
     def moveAxis(self, data): # data: p,  tptp, destx,  desty,  destz,  spx, spy
         self.myport.com.txmsg.emit( 'P X '+ str(data[2]) +  ' ' + str(data[5]))
