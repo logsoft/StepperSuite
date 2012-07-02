@@ -4,14 +4,13 @@
 Module implementing ComFrame.
 """
 from PyQt4 import QtCore
-import string
 from PyQt4.QtGui import QFrame
 from PyQt4.QtCore import pyqtSignature
-from ui_comframe import Ui_Frame
+from ui_comframe import Ui_frame
 
 import comthread
 
-class ComFrame(QFrame, Ui_Frame):
+class ComFrame(QFrame, Ui_frame):
     """
     Class documentation goes here.
     """
@@ -49,8 +48,13 @@ class ComFrame(QFrame, Ui_Frame):
         """
         Slot documentation goes here.
         """
+        self.opencomport(str(self.comboBox_com_ports.currentText()))
+
+
+    def opencomport(self, port):
+
         if not  self.com.isOpen():
-            self.com.serial_arg['port'] = str(self.comboBox_com_ports.currentText())
+            self.com.serial_arg['port'] = port
             self.com.serial_arg['baudrate'] = 57600
             self.com.open()
             if self.com.isOpen():

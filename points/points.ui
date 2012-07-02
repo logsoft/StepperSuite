@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>360</height>
+    <width>580</width>
+    <height>460</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,139 +19,133 @@
   <property name="frameShadow">
    <enum>QFrame::Raised</enum>
   </property>
-  <widget class="QTableWidget" name="tableWidget_points">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>500</width>
-     <height>215</height>
-    </rect>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Sunken</enum>
-   </property>
-   <property name="gridStyle">
-    <enum>Qt::SolidLine</enum>
-   </property>
-   <property name="cornerButtonEnabled">
-    <bool>true</bool>
-   </property>
-   <property name="rowCount">
-    <number>1</number>
-   </property>
-   <property name="columnCount">
-    <number>6</number>
-   </property>
-   <attribute name="horizontalHeaderCascadingSectionResizes">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>76</number>
-   </attribute>
-   <attribute name="verticalHeaderDefaultSectionSize">
-    <number>20</number>
-   </attribute>
-   <row/>
-   <column/>
-   <column/>
-   <column/>
-   <column/>
-   <column/>
-   <column/>
-  </widget>
-  <widget class="QPushButton" name="pushButton_teachNew">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>220</y>
-     <width>140</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>DejaVu Sans Mono</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Teach new</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_teachInsert">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>220</y>
-     <width>140</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>DejaVu Sans Mono</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Teach insert</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_deleteRow">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>220</y>
-     <width>140</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>DejaVu Sans Mono</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>delete row</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_moveTo">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>270</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>DejaVu Sans Mono</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Move to Point</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_testcycle">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>270</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>testcycle</string>
-   </property>
-   <property name="shortcut">
-    <string>Space</string>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="4">
+    <widget class="QLabel" name="label_filename">
+     <property name="font">
+      <font>
+       <family>DejaVu Sans Mono</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>no file loaded yet !</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="4">
+    <widget class="QTableWidget" name="tableWidget_points">
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="autoScrollMargin">
+      <number>16</number>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::SolidLine</enum>
+     </property>
+     <property name="cornerButtonEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="rowCount">
+      <number>1</number>
+     </property>
+     <property name="columnCount">
+      <number>6</number>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>80</number>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>18</number>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>18</number>
+     </attribute>
+     <row/>
+     <column/>
+     <column/>
+     <column/>
+     <column/>
+     <column/>
+     <column/>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QPushButton" name="pushButton_teachNew">
+     <property name="font">
+      <font>
+       <family>DejaVu Sans Mono</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Teach new</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="2">
+    <widget class="QPushButton" name="pushButton_teachInsert">
+     <property name="font">
+      <font>
+       <family>DejaVu Sans Mono</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Teach insert</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="QPushButton" name="pushButton_deleteRow">
+     <property name="font">
+      <font>
+       <family>DejaVu Sans Mono</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>delete row</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QPushButton" name="pushButton_moveTo">
+     <property name="font">
+      <font>
+       <family>DejaVu Sans Mono</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Move to Point</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="2" colspan="2">
+    <widget class="QPushButton" name="pushButton_testcycle">
+     <property name="text">
+      <string>testcycle</string>
+     </property>
+     <property name="shortcut">
+      <string>Space</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

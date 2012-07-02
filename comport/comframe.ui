@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Frame</class>
- <widget class="QFrame" name="Frame">
+ <class>frame</class>
+ <widget class="QFrame" name="frame">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,13 +23,13 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Frame</string>
+   <string>Comportframe</string>
   </property>
   <property name="frameShape">
-   <enum>QFrame::NoFrame</enum>
+   <enum>QFrame::StyledPanel</enum>
   </property>
   <property name="frameShadow">
-   <enum>QFrame::Sunken</enum>
+   <enum>QFrame::Raised</enum>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">

@@ -16,13 +16,7 @@ from eepromparams.eepromparams import eepromParams
 from drives.drives import Drives
 from points.points import PointsEdit
 import logging
-import csv
 import ConfigParser
-import  time
-
-#import com,  timing,  udprcv,  teach
-#from app import com, timing,  udprcv,  teach
-
 from appdirs import AppDirs
 
 #path, file = os.path.split(os.path.realpath(__file__))
@@ -35,9 +29,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent = None):
         QMainWindow.__init__(self, parent)
         self.setupUi(self)
-        self.log = logging.getLogger('log.gui')      
-        
-        dirs = AppDirs("racegui", "Acme")
+        self.log = logging.getLogger('log.gui')
+
+        dirs = AppDirs("StepperSuite", "logsoft")
         path = dirs.user_data_dir + '/'
         print path
         
@@ -50,7 +44,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         autoload =config.get("app", "autoload")
         autofile = path + config.get("app", "file")
         autoopen = config.get('com',  'autoopen')
-        #comport = config.get('com',  'port')
+        comport = config.get('com',  'port')
 
         
         #serial comunication to arduino
@@ -77,6 +71,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         #point management
         self.pointedit = PointsEdit(self.frame_points_placeholder)
+        self.pointedit.control_msg.connect(self._sndToCom)
 
 
         #lanc Camera 
@@ -87,27 +82,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #set UI elements unacceptable
 
         #auto load/open things
-#        if autoload == '1':self._loaddat(autofile)
-#        if autoopen == '1':self._opencom()
+        if autoload == '1':self.pointedit.loadfile(autofile)
+
+        if autoopen == '1':self.myport.opencomport(comport)
 
 
     def _sndToCom(self, msg):
         """Send parameters to micro"""
         self.myport.com.txmsg.emit(msg)
     
-    def _loaddat(self, filename):
-        try:
-            with open(filename, 'rb') as file:
-                csvread = csv.reader(file, delimiter='\t',
-                                quotechar='"',  quoting = csv.QUOTE_ALL)
-                self.teacher.teachpoints = []
-                for row in csvread:
-                    self.teacher.teachpoints.append(row)
-                self.update_Teachline()
-                self.label_filename.setText(filename)
-        except:
-            pass
-
 #    def _com_state(self,state):
 #        if state == "open" : self._UI_access(1)
 #        if state == "closed" : self._UI_access(0)
@@ -124,6 +107,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     
     def decodeData(self, data):
         self.control.drive_msg.emit(data)
+        self.pointedit.drive_msg.emit(data)
 
         if data[0] == 'XG':
             self.eepromparams.RcvParamsMsg.emit((data[1], data[2]))
@@ -132,130 +116,58 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.cam.lancIn.emit(data[1])
             
 
-    def update_Teachline(self):
-        if self.spinBox_teachPoint.value() <=  len(self.teacher.teachpoints)-1:
-            pd = self.teacher.GetPoint(self.spinBox_teachPoint.value()) #(p , t , tf, x , y , z )
-            self.spinBox_teach_time.setValue(int(pd[1]))
-            self.lineEdit_teach_tfact.setText(pd[2])
-            self.lineEdit_teach_x.setText(str(pd[3]))
-            self.lineEdit_teach_y.setText(str(pd[4]))
-            self.lineEdit_teach_z.setText(str(pd[5]))
-        else:
-            self.spinBox_teach_time.setValue(-1)
-            self.lineEdit_teach_tfact.setText('-1')
-            self.lineEdit_teach_x.setText('none')
-            self.lineEdit_teach_y.setText('none')
-            self.lineEdit_teach_z.setText('none')
+#    @pyqtSignature("")
+#    def on_pushButton_teachMove_released(self):
+#        pd = self.teacher.GetPoint(int(self.spinBox_teachPoint.text()))
+#        self.myport.com.txmsg.emit( 'P X '+ pd[3] +  ' ' + str(2000))
+#        self.myport.com.txmsg.emit( 'P Y '+ pd[4] +  ' ' + str(2000))
+#        self.myport.com.txmsg.emit( 'LS '+ pd[5] )
         
-
-    @pyqtSignature("int")
-    def on_checkBox_drv_stateChanged(self, p0):
-        d=0
-        if p0==0:d = 1
-        self.myport.com.txmsg.emit( 'S X '+ str(d))
-        self.myport.com.txmsg.emit( 'S Y '+ str(d))
-        self.log.info('Driver state set to: %s' %str(d) )
-
-    @pyqtSignature("")
-    def on_pushButton_teachMove_released(self):
-        pd = self.teacher.GetPoint(int(self.spinBox_teachPoint.text()))
-        self.myport.com.txmsg.emit( 'P X '+ pd[3] +  ' ' + str(2000))
-        self.myport.com.txmsg.emit( 'P Y '+ pd[4] +  ' ' + str(2000))
-        self.myport.com.txmsg.emit( 'LS '+ pd[5] )
-        
-    @pyqtSignature("")
-    def on_pushButton_teachIn_released(self):
-        #p = str(self.spinBox_teachPoint.text())
-        p = len(self.teacher.teachpoints) 
-        t = str(self.spinBox_teach_time.text())
-        tf = str(self.lineEdit_teach_tfact.text())
-        self.lineEdit_teach_x.setText(self.label_X_p.text())
-        self.lineEdit_teach_y.setText(str(self.label_Y_p.text()))
-#        self.lineEdit_teach_z.setText(str(self.label_Z_pos.text()))
-        x = str(self.label_X_p.text())
-        y= str(self.label_Y_p.text())
-        #z= str(self.label_Z_pos.text())
-        z = self.lineEdit_teach_z.text()   
-        
-        data = [p , t , tf , x , y , z ]
-        #print data
-        self.teacher.Teach(data)
-        i = int(self.spinBox_teachPoint.text()) +1
-        self.spinBox_teachPoint.setValue(p)
+#    @pyqtSignature("")
+#    def on_pushButton_teachIn_released(self):
+#        #p = str(self.spinBox_teachPoint.text())
+#        p = len(self.teacher.teachpoints)
+#        t = str(self.spinBox_teach_time.text())
+#        tf = str(self.lineEdit_teach_tfact.text())
+#        self.lineEdit_teach_x.setText(self.label_X_p.text())
+#        self.lineEdit_teach_y.setText(str(self.label_Y_p.text()))
+##        self.lineEdit_teach_z.setText(str(self.label_Z_pos.text()))
+#        x = str(self.label_X_p.text())
+#        y= str(self.label_Y_p.text())
+#        #z= str(self.label_Z_pos.text())
+#        z = self.lineEdit_teach_z.text()
+#
+#        data = [p , t , tf , x , y , z ]
+#        #print data
+#        self.teacher.Teach(data)
+#        i = int(self.spinBox_teachPoint.text()) +1
+#        self.spinBox_teachPoint.setValue(p)
     
-    @pyqtSignature("")
-    def on_pushButton_tc_released(self):
-        self.pakt
-        pd = self.teacher.GetPoint(self.pakt)
-        self.pakt += 1
-        if self.pakt > len(self.teacher.teachpoints)-1: self.pakt = 0
-        pi = int(self.spinBox_teachPoint.text())
-        self.myport.com.txmsg.emit( 'P X '+ pd[3] +  ' ' + str(2000))
-        self.myport.com.txmsg.emit( 'P Y '+ pd[4] +  ' ' + str(2000))
-        self.myport.com.txmsg.emit( 'LS '+ pd[5] )
+#    @pyqtSignature("")
+#    def on_pushButton_tc_released(self):
+#        self.pakt
+#        pd = self.teacher.GetPoint(self.pakt)
+#        self.pakt += 1
+#        if self.pakt > len(self.teacher.teachpoints)-1: self.pakt = 0
+#        pi = int(self.spinBox_teachPoint.text())
+#        self.myport.com.txmsg.emit( 'P X '+ pd[3] +  ' ' + str(2000))
+#        self.myport.com.txmsg.emit( 'P Y '+ pd[4] +  ' ' + str(2000))
+#        self.myport.com.txmsg.emit( 'LS '+ pd[5] )
     
     @pyqtSignature("")
     def on_action_Load_triggered(self):
         filename = QtGui.QFileDialog.getOpenFileName(self, 'Open File', '.csv',  "Teachdata (*.csv)")
         print filename
         #self._loaddat(filename)
-        self.pointedit.loaddata(filename)
+        self.pointedit.loadfile(filename)
 
 
     @pyqtSignature("")
     def on_action_Save_triggered(self):
         filename = QtGui.QFileDialog.getSaveFileName(self, 'Save File', '.csv',  "Teachdata (*.csv)")
-        try:
-            with open(filename, 'wb') as file:
-                csvwrite = csv.writer(file, delimiter='\t',
-                                quotechar='"',  quoting = csv.QUOTE_ALL)
-                for row in self.teacher.teachpoints:
-                    print row
-                    csvwrite.writerow(row)
-        except:
-            pass
-            
-    @pyqtSignature("")
-    def on_spinBox_teachPoint_editingFinished(self):
-        self.update_Teachline()
-    
-    @pyqtSignature("int")
-    def on_spinBox_teachPoint_valueChanged(self, p0):
-        self.update_Teachline()
-    
-    @pyqtSignature("")
-    def on_pushButton_teachInsert_released(self):
-        p = str(self.spinBox_teachPoint.text())
-        t = str(self.spinBox_teach_time.text())
-        tf = str(self.lineEdit_teach_tfact.text())
-        self.lineEdit_teach_x.setText(self.label_X_p.text())
-        self.lineEdit_teach_y.setText(str(self.label_Y_p.text()))
-        x = str(self.label_X_p.text())
-        y= str(self.label_Y_p.text())
-        #z= str(self.label_Z_pos.text())
-        z = self.lineEdit_teach_z.text()
-        print z
-        data = [p , t , tf,   x , y , z ]
-        self.teacher.insTeach(data)
-        self.update_Teachline()
+        print filename
+        self.pointedit.savefile(filename)
 
-    @pyqtSignature("")
-    def on_pushButton_teachDelete_released(self):
-        self.teacher.delTeach(self.spinBox_teachPoint.text())
-        self.update_Teachline()
-    
-    @pyqtSignature("")
-    def on_pushButton_teachEdit_released(self):
-        p = str(self.spinBox_teachPoint.text())
-        t = str(self.spinBox_teach_time.text())
-        tf = str(self.lineEdit_teach_tfact.text())
-        x = self.lineEdit_teach_x.text()
-        y = self.lineEdit_teach_y.text()
-        z =self.lineEdit_teach_z.text()
-        data = [p , t , tf,   x , y , z ]
-        self.teacher.editTeach(data)
-        self.update_Teachline()
-    
 
     @pyqtSignature("")
     def on_action_Drive_Parameter_triggered(self):

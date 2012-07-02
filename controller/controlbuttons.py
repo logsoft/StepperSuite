@@ -34,7 +34,7 @@ class ControlButtons(QFrame, Ui_Frame_controlbuttons):
 
     def _driveupdate(self,msg):
 
-        if msg[0] == 'W' or 'L':              #pos
+        if msg[0] == 'W' or msg[0] == 'L':
         #            self.timing.axismsg.emit(data)
             if msg[1]  == 'X': self.label_X_p.setText (msg[2])
             if msg[1]  == 'Y': self.label_Y_p.setText (msg[2])
