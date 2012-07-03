@@ -25,18 +25,25 @@ class Drives(QFrame, Ui_Frame):
         self.setupUi(self)
         self.log = logging.getLogger('drives')
         self.drive_msg.connect(self._driveupdate)
+        self.checkBox_drv.setEnabled(0)
+        self.pushButton_refauto.setEnabled(0) #0 off 1=on
+        self.pushButton_refX.setEnabled(0) #0 off 1=on
+        self.pushButton_refY.setEnabled(0) #0 off 1=on
+        self.pushButton_refZ.setEnabled(0) #0 off 1=on
 
     def _driveupdate(self,msg):
 
         if msg[0] == 'Q':              #State X sets all!
-            d = 1
             if msg[2] == '1':d = 0      #TODO switch logic
             if msg[1]  == 'X':
-                self.checkBox_drv.setCheckState(d)
-                self.pushButton_refauto.setEnabled(d) #0 off 1=on
-                self.pushButton_refX.setEnabled(d) #0 off 1=on
-                self.pushButton_refY.setEnabled(d) #0 off 1=on
-                self.pushButton_refZ.setEnabled(d) #0 off 1=on
+                d = 1
+                self.checkBox_drv.setEnabled(1)
+
+            self.checkBox_drv.setCheckState(d)
+            self.pushButton_refauto.setEnabled(d) #0 off 1=on
+            self.pushButton_refX.setEnabled(d) #0 off 1=on
+            self.pushButton_refY.setEnabled(d) #0 off 1=on
+            self.pushButton_refZ.setEnabled(d) #0 off 1=on
 
 
     @pyqtSignature("int")

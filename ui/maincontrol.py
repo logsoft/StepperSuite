@@ -116,56 +116,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.cam.lancIn.emit(data[1])
             
 
-#    @pyqtSignature("")
-#    def on_pushButton_teachMove_released(self):
-#        pd = self.teacher.GetPoint(int(self.spinBox_teachPoint.text()))
-#        self.myport.com.txmsg.emit( 'P X '+ pd[3] +  ' ' + str(2000))
-#        self.myport.com.txmsg.emit( 'P Y '+ pd[4] +  ' ' + str(2000))
-#        self.myport.com.txmsg.emit( 'LS '+ pd[5] )
-        
-#    @pyqtSignature("")
-#    def on_pushButton_teachIn_released(self):
-#        #p = str(self.spinBox_teachPoint.text())
-#        p = len(self.teacher.teachpoints)
-#        t = str(self.spinBox_teach_time.text())
-#        tf = str(self.lineEdit_teach_tfact.text())
-#        self.lineEdit_teach_x.setText(self.label_X_p.text())
-#        self.lineEdit_teach_y.setText(str(self.label_Y_p.text()))
-##        self.lineEdit_teach_z.setText(str(self.label_Z_pos.text()))
-#        x = str(self.label_X_p.text())
-#        y= str(self.label_Y_p.text())
-#        #z= str(self.label_Z_pos.text())
-#        z = self.lineEdit_teach_z.text()
-#
-#        data = [p , t , tf , x , y , z ]
-#        #print data
-#        self.teacher.Teach(data)
-#        i = int(self.spinBox_teachPoint.text()) +1
-#        self.spinBox_teachPoint.setValue(p)
-    
-#    @pyqtSignature("")
-#    def on_pushButton_tc_released(self):
-#        self.pakt
-#        pd = self.teacher.GetPoint(self.pakt)
-#        self.pakt += 1
-#        if self.pakt > len(self.teacher.teachpoints)-1: self.pakt = 0
-#        pi = int(self.spinBox_teachPoint.text())
-#        self.myport.com.txmsg.emit( 'P X '+ pd[3] +  ' ' + str(2000))
-#        self.myport.com.txmsg.emit( 'P Y '+ pd[4] +  ' ' + str(2000))
-#        self.myport.com.txmsg.emit( 'LS '+ pd[5] )
-    
     @pyqtSignature("")
     def on_action_Load_triggered(self):
         filename = QtGui.QFileDialog.getOpenFileName(self, 'Open File', '.csv',  "Teachdata (*.csv)")
-        print filename
-        #self._loaddat(filename)
         self.pointedit.loadfile(filename)
 
 
     @pyqtSignature("")
     def on_action_Save_triggered(self):
         filename = QtGui.QFileDialog.getSaveFileName(self, 'Save File', '.csv',  "Teachdata (*.csv)")
-        print filename
         self.pointedit.savefile(filename)
 
 
