@@ -27,9 +27,11 @@ class PointsEdit(QFrame, Ui_Frame):
         self.header = [ 'point' , 'time' , 'pos X' , 'pos Y' , 'pos Z', 'LancCmd' ]
         self._init_table()
 
+        #last known positions
         self.posx = '0'
         self.posy = '0'
         self.posz = '0'
+        #drive msg slot
         self.drive_msg.connect(self._driveupdate)
 
 
@@ -69,8 +71,7 @@ class PointsEdit(QFrame, Ui_Frame):
                 for row, rdata in enumerate(pointsdata):    #fill table with data
                     self.tableWidget_points.insertRow( self.tableWidget_points.rowCount())
                     for cell, data in enumerate(rdata):
-                        item = QTableWidgetItem(data)
-                        self.tableWidget_points.setItem(row, cell, item)
+                        self.tableWidget_points.setItem(row, cell, QTableWidgetItem(data))
                 self._renumber()
                 self.label_filename.setText(filename)
         except:
@@ -107,18 +108,12 @@ class PointsEdit(QFrame, Ui_Frame):
         """
         lastrow = self.tableWidget_points.rowCount()
         self.tableWidget_points.insertRow(lastrow)
-        item = QTableWidgetItem(str(lastrow + 1))
-        self.tableWidget_points.setItem(lastrow, 0, item)
-        item = QTableWidgetItem('0')
-        self.tableWidget_points.setItem(lastrow, 1, item)
-        item = QTableWidgetItem(self.posx)
-        self.tableWidget_points.setItem(lastrow, 2, item)
-        item = QTableWidgetItem(self.posy)
-        self.tableWidget_points.setItem(lastrow, 3, item)
-        item = QTableWidgetItem(self.posz)
-        self.tableWidget_points.setItem(lastrow, 4, item)
-        item = QTableWidgetItem('-1')
-        self.tableWidget_points.setItem(lastrow, 5, item)
+        self.tableWidget_points.setItem(lastrow, 0, QTableWidgetItem(str(lastrow + 1))) #point number
+        self.tableWidget_points.setItem(lastrow, 1, QTableWidgetItem('0'))              # time
+        self.tableWidget_points.setItem(lastrow, 2, QTableWidgetItem(self.posx))        #position x
+        self.tableWidget_points.setItem(lastrow, 3, QTableWidgetItem(self.posy))        #position y
+        self.tableWidget_points.setItem(lastrow, 4, QTableWidgetItem(self.posz))        #position z
+        self.tableWidget_points.setItem(lastrow, 5, QTableWidgetItem('-1'))             #lanc command
 
     @pyqtSignature("")
     def on_pushButton_teachInsert_released(self):
@@ -128,18 +123,11 @@ class PointsEdit(QFrame, Ui_Frame):
         rowselected = self.tableWidget_points.currentRow()
         print rowselected
         self.tableWidget_points.insertRow(rowselected)
-#        item = QTableWidgetItem(str(rowselected + 1))       #point nr
-#        self.tableWidget_points.setItem(rowselected, 0, item)
-        item = QTableWidgetItem('0')                        #time
-        self.tableWidget_points.setItem(rowselected, 1, item)
-        item = QTableWidgetItem(self.posx)
-        self.tableWidget_points.setItem(rowselected, 2, item)
-        item = QTableWidgetItem(self.posy)
-        self.tableWidget_points.setItem(rowselected, 3, item)
-        item = QTableWidgetItem(self.posz)
-        self.tableWidget_points.setItem(rowselected, 4, item)
-        item = QTableWidgetItem('-1')
-        self.tableWidget_points.setItem(rowselected, 5, item)
+        self.tableWidget_points.setItem(rowselected, 1, QTableWidgetItem('0') )         #time
+        self.tableWidget_points.setItem(rowselected, 2, QTableWidgetItem(self.posx))    #position x
+        self.tableWidget_points.setItem(rowselected, 3, QTableWidgetItem(self.posy))    #position y
+        self.tableWidget_points.setItem(rowselected, 4, QTableWidgetItem(self.posz))    #position z
+        self.tableWidget_points.setItem(rowselected, 5, QTableWidgetItem('-1'))         #lanc command
         self._renumber()
 
 
@@ -161,8 +149,9 @@ class PointsEdit(QFrame, Ui_Frame):
         """
         row = self.tableWidget_points.currentRow()
         print row
-        item = self.tableWidget_points.item(row,2)
-        pos = str(item.data(0).toString())
+        #item = self.tableWidget_points.item(row,2).data(0).toString()
+        pos  = str(self.tableWidget_points.item(row,2).data(0).toString())
+        #pos = str(item.data(0).toString())
         self.control_msg.emit( 'P X '+ pos +  ' ' + str(2000))
         item = self.tableWidget_points.item(row,3)
         pos = str(item.data(0).toString())

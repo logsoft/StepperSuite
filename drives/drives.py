@@ -34,11 +34,13 @@ class Drives(QFrame, Ui_Frame):
     def _driveupdate(self,msg):
 
         if msg[0] == 'Q':              #State X sets all!
-            if msg[2] == '1':d = 0      #TODO switch logic
-            if msg[1]  == 'X':
-                d = 1
-                self.checkBox_drv.setEnabled(1)
+            d = 1
+            if msg[2] == '1':
+                d = 0      #TODO switch logic
+            if msg[2] == '0':
+                d = 2
 
+            self.checkBox_drv.setEnabled(1)
             self.checkBox_drv.setCheckState(d)
             self.pushButton_refauto.setEnabled(d) #0 off 1=on
             self.pushButton_refX.setEnabled(d) #0 off 1=on

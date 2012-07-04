@@ -6,7 +6,7 @@
 #changelog:
 #22.09.2011 - check recieved messages 4 CR (completenes) throw away if incomplete
 #26.06.2012 - changed to own package
-
+from PyQt4 import QtCore
 import serial
 import glob
 import os
@@ -15,7 +15,6 @@ import crcmod.predefined
 import struct
 import collections
 import datetime
-from PyQt4 import QtCore
 
 def _scan():
     """scan for available ports. return a list of device names."""

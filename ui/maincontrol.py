@@ -7,7 +7,6 @@ Module implementing MainWindow.
 from PyQt4.QtGui import QMainWindow
 from PyQt4.QtCore import pyqtSignature
 from PyQt4.QtCore import pyqtSignal
-from PyQt4 import QtCore, QtGui
 from ui_maincontrol import Ui_MainWindow
 from lancCam import lancCam
 from comport.comframe import ComFrame
@@ -46,12 +45,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         autoopen = config.get('com',  'autoopen')
         comport = config.get('com',  'port')
 
-        
         #serial comunication to arduino
         self.myport = ComFrame(self.frame_com_placeholder)
         self.myport.com.rxmsg.connect(self.decodeData)
-#        self.myport.portstatus.connect(self._com_state)
-
 
         #controller button class
         self.control = ControlButtons(self.frame_control_placeholder)
@@ -60,9 +56,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #drives Button class
         self.drive = Drives(self.frame_drives_placeholder)
         self.drive.control_msg.connect(self._sndToCom)
-
-        #teach code
-#        self.teacher = teach.TeachIn(self)
 
         #drive EEPROM parameter
         self.eepromparams = eepromParams()
@@ -73,42 +66,27 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pointedit = PointsEdit(self.frame_points_placeholder)
         self.pointedit.control_msg.connect(self._sndToCom)
 
-
-        #lanc Camera 
+        #lanc Camera
         self.cam = lancCam()
         #self.cam.lancIn.connect(self._lancOut)
         self.cam.lancOut.connect(self._sndToCom)
-        
-        #set UI elements unacceptable
 
         #auto load/open things
         if autoload == '1':self.pointedit.loadfile(autofile)
-
         if autoopen == '1':self.myport.opencomport(comport)
 
 
     def _sndToCom(self, msg):
         """Send parameters to micro"""
         self.myport.com.txmsg.emit(msg)
-    
-#    def _com_state(self,state):
-#        if state == "open" : self._UI_access(1)
-#        if state == "closed" : self._UI_access(0)
 
-    def moveAxis(self, data): # data: p,  tptp, destx,  desty,  destz,  spx, spy
-        self.myport.com.txmsg.emit( 'P X '+ str(data[2]) +  ' ' + str(data[5]))
-        self.myport.com.txmsg.emit( 'P Y '+ str(data[3]) +  ' ' + str(data[6]))
-        if (data[4] != '-1'):
-            self.myport.com.txmsg.emit( 'LS '+ str(data[4]))
-        self.log.debug('$moveAxis: point%s, t%s, X%s, Y%s,Z%s, SX%s,SY%s' %(str(data[0]) ,  str(data[1]) , str(data[2]),  str(data[3]),
-                                                                                                                                str(data[4]) , str(data[5]) , str(data[6]) ))
-        #QtGui.qApp.processEvents()
-    
     
     def decodeData(self, data):
+        #this modules get all data
         self.control.drive_msg.emit(data)
         self.pointedit.drive_msg.emit(data)
-
+        self.drive.drive_msg.emit(data)
+        #selected data
         if data[0] == 'XG':
             self.eepromparams.RcvParamsMsg.emit((data[1], data[2]))
 
