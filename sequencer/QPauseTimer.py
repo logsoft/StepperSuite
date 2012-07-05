@@ -7,7 +7,8 @@ class QPauseTimer (QTimer):
     def __init__ (self, parent = None):
         QTimer.__init__ (self, parent)
         self.startTime = 0
-        self.interval    = 0
+        self.ispaused  = False
+        self.interval  = 0
         QTimer.setSingleShot(self,True)
         self.timeout.connect(self._timeend)
 
@@ -20,6 +21,7 @@ class QPauseTimer (QTimer):
             self.interval    = interval
         self.startTime = time.time ()
         self.start (self.interval)
+        self.ispaused  = False
         print 'start', self.interval
 
     def tpause (self):
@@ -30,10 +32,12 @@ class QPauseTimer (QTimer):
             # time() returns float secs, interval is int msec
             self.interval -= int (elapsedTime*1000)
             print 'pause ' , self.interval
+            self.ispaused = True
 
     def tstop(self):
             self.stop()
             self.startTime = 0
+            self.ispaused  = False
             print 'stop'
 
 

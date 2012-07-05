@@ -81,8 +81,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if autoopen == '1':self.myport.opencomport(comport)
 
 
-    def _pointsmsg(self,list):
-        self.points = list
+    def _pointsmsg(self,points):
+        self.points = points
+        self.Sequencer.points_msg.emit(points)
 
 
     def _sndToCom(self, msg):
