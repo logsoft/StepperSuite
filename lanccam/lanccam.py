@@ -7,10 +7,10 @@ Module implementing lancCam.
 from PyQt4.QtGui import QWidget
 from PyQt4.QtCore import pyqtSignature
 from PyQt4 import QtCore, QtGui
-from ui_lanccam import Ui_Form
+from Ui_lanccam import Ui_Form
 import time
 
-class lancCam(QWidget, Ui_Form):
+class LancCam(QWidget, Ui_Form):
     """
     Class documentation goes here.
     """

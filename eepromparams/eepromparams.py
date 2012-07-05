@@ -9,7 +9,7 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import QWidget
 from PyQt4.QtCore import pyqtSignature
 
-from ui_eepromparams import Ui_driveparams
+from Ui_eepromparams import Ui_driveparams
 
 import time
 

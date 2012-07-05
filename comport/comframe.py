@@ -6,7 +6,7 @@ Module implementing ComFrame.
 from PyQt4 import QtCore
 from PyQt4.QtGui import QFrame
 from PyQt4.QtCore import pyqtSignature
-from ui_comframe import Ui_frame
+from Ui_comframe import Ui_frame
 
 import comthread
 

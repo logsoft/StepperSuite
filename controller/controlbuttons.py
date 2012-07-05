@@ -8,7 +8,7 @@ from PyQt4 import QtCore
 from PyQt4.QtGui import QFrame
 from PyQt4.QtCore import pyqtSignature
 
-from ui_controlbuttons import Ui_Frame_controlbuttons
+from Ui_controlbuttons import Ui_Frame_controlbuttons
 
 class ControlButtons(QFrame, Ui_Frame_controlbuttons):
     """

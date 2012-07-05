@@ -7,7 +7,7 @@ from PyQt4 import QtCore
 from PyQt4.QtGui import QFrame, QTableWidgetItem
 from PyQt4.QtCore import pyqtSignature
 import csv
-from ui_points import Ui_Frame
+from Ui_points import Ui_Frame
 
 
 class PointsEdit(QFrame, Ui_Frame):
@@ -16,6 +16,7 @@ class PointsEdit(QFrame, Ui_Frame):
     """
     drive_msg  = QtCore.pyqtSignal(list)
     control_msg = QtCore.pyqtSignal(str)
+    points_msg =  QtCore.pyqtSignal(list)
 
     def __init__(self, parent = None):
         """
@@ -137,7 +138,6 @@ class PointsEdit(QFrame, Ui_Frame):
         Slot documentation goes here.
         """
         row = self.tableWidget_points.currentRow()
-        print row
         self.tableWidget_points.removeRow(row)
         self._renumber()
 
@@ -148,7 +148,6 @@ class PointsEdit(QFrame, Ui_Frame):
         Slot documentation goes here.
         """
         row = self.tableWidget_points.currentRow()
-        print row
         #item = self.tableWidget_points.item(row,2).data(0).toString()
         pos  = str(self.tableWidget_points.item(row,2).data(0).toString())
         #pos = str(item.data(0).toString())
@@ -168,4 +167,25 @@ class PointsEdit(QFrame, Ui_Frame):
         """
         # TODO: not implemented yet
         raise NotImplementedError
+
+
+    @pyqtSignature("int, int")
+    def on_tableWidget_points_cellChanged(self, row, column):
+        """
+        Slot documentation goes here.
+        """
+        rows = []
+
+        for r in range(0,self.tableWidget_points.rowCount()):
+            rows.append([])
+            for c in range(0,self.tableWidget_points.columnCount()):
+                item = self.tableWidget_points.item(r,c)
+                if item is not None:
+                    stri = str(item.data(0).toString())
+                    rows[r].append(stri)
+                else:
+                    rows[r].append(None)
+
+        if not None in rows:
+            self.points_msg.emit(rows)
 

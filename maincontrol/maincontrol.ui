@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>772</width>
-    <height>760</height>
+    <width>1114</width>
+    <height>719</height>
    </rect>
   </property>
   <property name="palette">
@@ -446,7 +446,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>681</width>
+      <width>1091</width>
       <height>32</height>
      </rect>
     </property>
@@ -469,8 +469,8 @@
    <widget class="QPushButton" name="pushButton_lancControl">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>470</y>
+      <x>10</x>
+      <y>460</y>
       <width>160</width>
       <height>41</height>
      </rect>
@@ -482,8 +482,8 @@
    <widget class="QLabel" name="label_ip_port">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>520</y>
+      <x>10</x>
+      <y>420</y>
       <width>151</width>
       <height>34</height>
      </rect>
@@ -504,8 +504,8 @@
    <widget class="QFrame" name="frame_com_placeholder">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>40</y>
+      <x>10</x>
+      <y>270</y>
       <width>160</width>
       <height>150</height>
      </rect>
@@ -548,8 +548,8 @@
    <widget class="QFrame" name="frame_drives_placeholder">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>200</y>
+      <x>170</x>
+      <y>270</y>
       <width>160</width>
       <height>230</height>
      </rect>
@@ -570,8 +570,8 @@
    <widget class="QFrame" name="frame_points_placeholder">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>270</y>
+      <x>520</x>
+      <y>50</y>
       <width>580</width>
       <height>460</height>
      </rect>
@@ -589,13 +589,40 @@
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
+   <widget class="QFrame" name="frame_sequencer_placeholder">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>510</y>
+      <width>580</width>
+      <height>180</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>570</width>
+      <height>180</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>DejaVu Sans Mono</family>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>772</width>
+     <width>1114</width>
      <height>21</height>
     </rect>
    </property>

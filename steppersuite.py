@@ -4,7 +4,7 @@ import sys
 # Import Qt modules
 from PyQt4 import QtCore,QtGui
 # Import the compiled UI module
-from ui.maincontrol import MainWindow
+from maincontrol.maincontrol import MainWindow
 
 import logging.config
 

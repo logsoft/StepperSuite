@@ -7,13 +7,14 @@ Module implementing MainWindow.
 from PyQt4.QtGui import QMainWindow
 from PyQt4.QtCore import pyqtSignature
 from PyQt4.QtCore import pyqtSignal
-from ui_maincontrol import Ui_MainWindow
-from lancCam import lancCam
+from Ui_maincontrol import Ui_MainWindow
 from comport.comframe import ComFrame
 from controller.controlbuttons import ControlButtons
 from eepromparams.eepromparams import eepromParams
 from drives.drives import Drives
 from points.points import PointsEdit
+from lanccam.lanccam import LancCam
+from sequencer.sequencer import Sequecer
 import logging
 import ConfigParser
 from appdirs import AppDirs
@@ -34,7 +35,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         path = dirs.user_data_dir + '/'
         print path
         
-        self.pakt = 0
+        self.points = []        #this is the globally points list - no use!?
         
         #config parser
         config = ConfigParser.ConfigParser()
@@ -65,15 +66,23 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #point management
         self.pointedit = PointsEdit(self.frame_points_placeholder)
         self.pointedit.control_msg.connect(self._sndToCom)
+        self.pointedit.points_msg.connect(self._pointsmsg)
+
+        #sequencer
+        self.Sequencer = Sequecer(self.frame_sequencer_placeholder)
+
 
         #lanc Camera
-        self.cam = lancCam()
-        #self.cam.lancIn.connect(self._lancOut)
+        self.cam = LancCam()
         self.cam.lancOut.connect(self._sndToCom)
 
         #auto load/open things
         if autoload == '1':self.pointedit.loadfile(autofile)
         if autoopen == '1':self.myport.opencomport(comport)
+
+
+    def _pointsmsg(self,list):
+        self.points = list
 
 
     def _sndToCom(self, msg):

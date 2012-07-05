@@ -6,7 +6,7 @@ Module implementing Drives.
 from PyQt4 import QtCore
 from PyQt4.QtGui import QFrame
 from PyQt4.QtCore import pyqtSignature
-from ui_drives import Ui_Frame
+from Ui_drives import Ui_Frame
 import logging
 import time
 
