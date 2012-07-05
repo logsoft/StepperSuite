@@ -3,6 +3,7 @@
 """
 Module implementing MainWindow.
 """
+from PyQt4 import QtGui
 
 from PyQt4.QtGui import QMainWindow
 from PyQt4.QtCore import pyqtSignature
@@ -70,7 +71,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         #sequencer
         self.Sequencer = Sequecer(self.frame_sequencer_placeholder)
-
+        self.Sequencer.drive_msg.connect(self._sndToCom)
 
         #lanc Camera
         self.cam = LancCam()

@@ -158,7 +158,7 @@ class PointsEdit(QFrame, Ui_Frame):
         item = self.tableWidget_points.item(row,4)
         pos = str(item.data(0).toString())
         self.control_msg.emit( 'P Z '+ pos +  ' ' + str(2000))
-
+        # TODO: lanc
 
     @pyqtSignature("")
     def on_pushButton_testcycle_released(self):
